@@ -1,0 +1,35 @@
+<svg width="420" height="68" viewBox="0 16 420 68" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- icon -->
+  <rect x="0" y="20" width="60" height="60" rx="14" fill="#1E3A5F"/>
+
+  <!-- nodes -->
+  <circle cx="18" cy="38" r="3" fill="white"/>
+  <circle cx="42" cy="38" r="3" fill="white"/>
+  <circle cx="18" cy="62" r="3" fill="white"/>
+  <circle cx="42" cy="62" r="3" fill="white"/>
+
+  <line x1="18" y1="38" x2="42" y2="38" stroke="white" stroke-width="2"/>
+  <line x1="18" y1="62" x2="42" y2="62" stroke="white" stroke-width="2"/>
+  <line x1="18" y1="38" x2="18" y2="62" stroke="white" stroke-width="2"/>
+  <line x1="42" y1="38" x2="42" y2="62" stroke="white" stroke-width="2"/>
+
+  <!-- main text -->
+  <text x="80" y="50"
+        font-family="Inter, sans-serif"
+        font-size="30"
+        font-weight="600"
+        fill="#111827">
+        TH Engineering
+  </text>
+
+  <!-- descriptor -->
+  <text x="80" y="75"
+        font-family="Inter, sans-serif"
+        font-size="16"
+        font-weight="400"
+        fill="#6B7280">
+        Enterprise Architecture &amp; Development
+  </text>
+
+</svg>

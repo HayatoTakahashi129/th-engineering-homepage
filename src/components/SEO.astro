@@ -1,0 +1,67 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  pathname?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  ogImage,
+  pathname = "",
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${site.siteName}` : site.siteName;
+
+// Handle base path (for GitHub Pages: /repo-name)
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canonicalUrl = `${site.baseUrl}${pathname}`;
+
+// Derive OG image from pathname → /og/<slug>.png
+const cleanPath = pathname.startsWith(basePath)
+  ? pathname.slice(basePath.length)
+  : pathname;
+const slug =
+  cleanPath === "/" || cleanPath === ""
+    ? "index"
+    : cleanPath.replace(/^\/|\/$/g, "");
+const ogImageUrl = ogImage
+  ? `${site.baseUrl}${ogImage}`
+  : `${site.baseUrl}${basePath}/og/${slug}.png`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.siteName,
+  legalName: site.legalName,
+  url: site.baseUrl,
+  email: site.email,
+  description: site.description,
+};
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- OGP -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:site_name" content={site.siteName} />
+<meta property="og:locale" content="ja_JP" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

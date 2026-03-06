@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import CTA from "../components/CTA.astro";
+import { works } from "../data/works";
+---
+
+<BaseLayout
+  title="実績"
+  description="THエンジニアリングのプロジェクト実績。決済アプリ開発支援をはじめとするエンタープライズ開発の事例をご紹介します。"
+>
+  <section class="py-16 md:py-20">
+    <Container>
+      <SectionTitle title="実績" />
+
+      {works.map((w) => (
+        <div class="rounded-lg border border-gray-200 p-6 md:p-8">
+          <h3 class="text-xl font-semibold text-text">{w.title}</h3>
+          <p class="mt-3 text-base leading-relaxed text-subtext">{w.summary}</p>
+
+          <div class="mt-6 grid gap-6 md:grid-cols-2">
+            <div>
+              <h4 class="text-sm font-semibold text-text">担当領域</h4>
+              <ul class="mt-2 space-y-1">
+                {w.roles.map((r) => (
+                  <li class="flex items-center gap-2 text-sm text-subtext">
+                    <span class="h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-text">成果</h4>
+              <ul class="mt-2 space-y-1">
+                {w.results.map((r) => (
+                  <li class="flex items-center gap-2 text-sm text-subtext">
+                    <span class="h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </Container>
+  </section>
+
+  <CTA />
+</BaseLayout>

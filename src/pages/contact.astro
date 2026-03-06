@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="お問い合わせ"
+  description="THエンジニアリングへのお問い合わせ。システム開発・技術戦略・アーキテクチャ設計など、お気軽にご相談ください。"
+>
+  <section class="py-16 md:py-20">
+    <Container>
+      <SectionTitle title="お問い合わせ" />
+
+      <div class="max-w-2xl space-y-4">
+        <p class="text-base leading-relaxed text-subtext md:text-lg">
+          システム開発・技術戦略・アーキテクチャ設計など、お気軽にご相談ください。
+        </p>
+        <p class="text-base leading-relaxed text-subtext md:text-lg">
+          内容が固まっていない段階でも問題ありません。現状を伺った上で最適な進め方をご提案します。
+        </p>
+
+        <div class="mt-6 rounded-lg border border-gray-200 p-6">
+          <p class="text-sm font-semibold text-text">メールでのお問い合わせ</p>
+          <a
+            href={`mailto:${site.email}`}
+            class="mt-1 inline-block text-accent transition hover:text-blue-600"
+          >
+            {site.email}
+          </a>
+          <p class="mt-4 text-xs text-subtext">
+            通常1営業日以内に返信いたします。
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

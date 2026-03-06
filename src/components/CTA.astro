@@ -1,0 +1,28 @@
+---
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "プロジェクトのご相談はこちら",
+  description = "技術戦略・アーキテクチャ設計・開発支援など、まずはお気軽にご相談ください。",
+} = Astro.props;
+---
+
+<section class="bg-gray-50 py-16 md:py-20">
+  <Container class="text-center">
+    <h2 class="text-2xl font-semibold tracking-tight text-text md:text-3xl">
+      {title}
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-subtext md:text-lg">
+      {description}
+    </p>
+    <div class="mt-8">
+      <Button href="/contact">お問い合わせ</Button>
+    </div>
+  </Container>
+</section>

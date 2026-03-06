@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
+import CTA from "../components/CTA.astro";
+import { strengths } from "../data/strengths";
+import { services } from "../data/services";
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="py-16 md:py-24" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);">
+    <Container class="text-center">
+      <h1 class="mx-auto max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-text md:text-5xl">
+        技術を理解するからこそ、<br />最適解を導ける。
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-subtext md:text-lg">
+        AWS / Java / Flutter / React を基盤に<br />
+        エンタープライズ品質の設計・開発支援を提供します。
+      </p>
+      <div class="mt-10">
+        <Button href="/contact" class="px-8 py-4">お問い合わせ</Button>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 強み -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <Container>
+      <SectionTitle title="私たちの強み" />
+      <div class="grid gap-6 md:grid-cols-3">
+        {strengths.map((s) => (
+          <Card title={s.title} description={s.description} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- サービス概要 -->
+  <section class="py-16 md:py-20">
+    <Container>
+      <SectionTitle title="サービス" subtitle="技術的判断に責任を持つ、3つの支援領域" />
+      <div class="grid gap-6 md:grid-cols-3">
+        {services.map((s) => (
+          <div class="rounded-lg border border-gray-200 p-6 transition hover:shadow-sm">
+            <h3 class="text-lg font-semibold text-text">{s.title}</h3>
+            <p class="mt-2 text-base leading-relaxed text-subtext">{s.description}</p>
+            <a
+              href="/services"
+              class="mt-4 inline-block text-sm font-medium text-accent transition hover:text-blue-600"
+            >
+              詳しく見る →
+            </a>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- 実績ティザー -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <Container>
+      <SectionTitle title="実績" />
+      <div class="rounded-lg border border-gray-200 bg-white p-6 md:p-8">
+        <h3 class="text-lg font-semibold text-text">
+          決済アプリ開発支援（バックエンド中心）
+        </h3>
+        <p class="mt-2 text-base leading-relaxed text-subtext">
+          大規模ユーザー基盤を持つ決済アプリ開発プロジェクトに参画。Javaバックエンド開発・API設計・AWS構成設計支援を担当。
+        </p>
+        <a
+          href="/works"
+          class="mt-4 inline-block text-sm font-medium text-accent transition hover:text-blue-600"
+        >
+          実績を見る →
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 会社ティザー -->
+  <section class="py-16 md:py-20">
+    <Container>
+      <SectionTitle title="会社について" />
+      <p class="max-w-2xl text-base leading-relaxed text-subtext md:text-lg">
+        技術を理解しているからこそ、組織全体の最適解を導く。技術と調整力の両立を強みに、プロジェクト成功確率を高める技術パートナーとして伴走します。
+      </p>
+      <a
+        href="/company"
+        class="mt-4 inline-block text-sm font-medium text-accent transition hover:text-blue-600"
+      >
+        会社概要を見る →
+      </a>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import CTA from "../components/CTA.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="会社概要"
+  description="合同会社THエンジニアリングの会社概要。エンタープライズ品質のシステム開発支援を提供する技術パートナー。"
+>
+  <section class="py-16 md:py-20">
+    <Container>
+      <SectionTitle title="会社概要" />
+
+      <!-- 会社情報テーブル -->
+      <div class="rounded-lg border border-gray-200 p-6 md:p-8">
+        <dl class="space-y-4">
+          <div class="flex flex-col gap-1 border-b border-gray-100 pb-4 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">会社名</dt>
+            <dd class="text-sm text-subtext">{site.legalName}</dd>
+          </div>
+          <div class="flex flex-col gap-1 border-b border-gray-100 pb-4 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">事業内容</dt>
+            <dd class="text-sm text-subtext">
+              <ul class="space-y-1">
+                <li>システム開発支援</li>
+                <li>技術戦略支援</li>
+                <li>IT教育事業</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="flex flex-col gap-1 border-b border-gray-100 pb-4 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">技術領域</dt>
+            <dd class="text-sm text-subtext">AWS / Java / Flutter / React</dd>
+          </div>
+          <div class="flex flex-col gap-1 border-b border-gray-100 pb-4 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">資本金</dt>
+            <dd class="text-sm text-subtext">415万円</dd>
+          </div>
+          <div class="flex flex-col gap-1 border-b border-gray-100 pb-4 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">所在地</dt>
+            <dd class="text-sm text-subtext">
+              〒107-0062<br />東京都港区南青山3丁目1番36号 青山丸竹ビル6F
+            </dd>
+          </div>
+          <div class="flex flex-col gap-1 md:flex-row md:gap-8">
+            <dt class="w-36 shrink-0 text-sm font-semibold text-text">メール</dt>
+            <dd class="text-sm text-subtext">
+              <a href={`mailto:${site.email}`} class="text-accent hover:text-blue-600 transition">
+                {site.email}
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- 代表メッセージ -->
+      <div class="mt-16">
+        <h3 class="text-xl font-semibold text-text">代表メッセージ</h3>
+        <div class="mt-6 flex flex-col gap-8 md:flex-row">
+          <img
+            src="/president.jpeg"
+            alt="代表写真"
+            width="192"
+            height="192"
+            class="h-48 w-48 shrink-0 rounded-lg object-cover"
+          />
+          <div class="space-y-4 text-base leading-relaxed text-subtext">
+            <p>
+              技術を理解しているからこそ、組織全体の最適解を導く。
+            </p>
+            <p>
+              技術と調整力の両立を強みに、プロジェクト成功確率を高める技術パートナーとして伴走します。
+            </p>
+            <p>
+              生成AIを開発プロセスに組み込み、品質と生産性の両立を実践しています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <CTA />
+</BaseLayout>
